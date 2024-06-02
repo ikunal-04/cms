@@ -4,6 +4,8 @@ import PercentageComplete from './PercentageComplete';
 import { PrimaryButton } from './buttons/PrimaryButton';
 import { SecondaryButton } from './buttons/SecondaryButton';
 import { useRouter } from 'next/navigation';
+import { Button } from './ui/button';
+import { ChevronRight } from 'lucide-react';
 
 export const CourseCard = ({
   course,
@@ -57,6 +59,16 @@ export const CourseCard = ({
           >
             View Content
           </button>
+          {course.certIssued && (
+            <SecondaryButton
+              onClick={(e) => {
+                e.stopPropagation();
+                router.push('/certificate');
+              }}
+            >
+              Download Certificate
+            </SecondaryButton>
+          )}
         </div>
       </div>
     </div>
